@@ -2,6 +2,8 @@
 #include <string.h>
 
 int writeToArray(int row, int col, char input) {
+	//Jacob's stuff
+
 	
 }
 
