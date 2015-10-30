@@ -10,5 +10,6 @@ int readFromArray(int row, int col) {
 }
 
 int main(void) {
+	//JJ's stuff
 	
 }
