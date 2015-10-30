@@ -8,7 +8,7 @@ int writeToArray(int row, int col, char input) {
 }
 
 int readFromArray(int row, int col) {
-	
+	// seth comment
 }
 
 int main(void) {
