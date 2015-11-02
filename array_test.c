@@ -9,22 +9,15 @@ void initArray(int rowCount, int colCount, char array[][colCount]);
 
 int writeToArray(int row, int col, char input) {
 	//Jacob's stuff
-	int chosenRow;
-	int chosenCol;
 
-	printf("In which row would you like to place your value?\n");
-	scanf("%d\n", chosenRow);
-	printf("You have chosen row number %d\n", chosenRow);
-	chosenRow = row;
 	
-	printf("In which column would you like to place your value?\n");
-	scanf("%d\n", chosenCol);
-	printf("You have chosen column number %d\n", chosenCol);
-	chosenCol = col;
 }
-
 int readFromArray(int row, int col) {
-	// seth comment
+	//seth's stuff
+	printf ("What row would you like to read from?\n");
+	scanf("%d", row);
+	printf("What column would you like to read from?\n"):
+	scanf("%d", col);
 }
 
 int main(void) {
