@@ -7,33 +7,85 @@ void printArray(int rowCount, int colCount, char array[][colCount]);
 void initArray(int rowCount, int colCount, char array[][colCount]);
 
 
-int writeToArray(int row, int col, char input) {
+int writeToArray(int row, int col, char input, int rowCount, int colCount, char array[][colCount]) {
 	//Jacob's stuff
-	int chosenRow;
-	int chosenCol;
-
-	printf("In which row would you like to place your value?\n");
-	scanf("%d\n", chosenRow);
-	printf("You have chosen row number %d\n", chosenRow);
-	chosenRow = row;
+	if(row > rowCount || col > colCount) {
+		return 1;
+	}
+	array[row][col] = input;
+	return 0;	
 	
-	printf("In which column would you like to place your value?\n");
-	scanf("%d\n", chosenCol);
-	printf("You have chosen column number %d\n", chosenCol);
-	chosenCol = col;
+	// int chosenRow;
+	// int chosenCol;
+
+	// printf("In which row would you like to place your value?\n");
+	// scanf("%d\n", chosenRow);
+	// printf("You have chosen row number %d\n", chosenRow);
+	// chosenRow = row;
+	
+	// printf("In which column would you like to place your value?\n");
+	// scanf("%d\n", chosenCol);
+	// printf("You have chosen column number %d\n", chosenCol);
+	// chosenCol = col;
 	
 }
-int readFromArray(int row, int col) {
+
+
+char readFromArray(int row, int col, int rowCount, int colCount, char array[][colCount]) {
 	//seth's stuff
-	printf ("What row would you like to read from?\n");
-	scanf("%d", row);
-	printf("What column would you like to read from?\n"):
-	scanf("%d", col);
+	char character;
+	
+	character = array[row][col];
+	
+	return charater;
+	
+	// printf ("What row would you like to read from?\n");
+	// scanf("%d", row);
+	// printf("What column would you like to read from?\n"):
+	// scanf("%d", col);
 }
 
 int main(void) {
-	//JJ's stuff
+	int keepGoing = 1, player = 1, row, col, won;
+	char xOrO;
+	int board[3][3];
 	
+	initArray(3, 3, board);
+	
+	while(keepGoing) {
+		printArray(3,3,board);
+		
+		printf("Player %d\n", player);
+		printf("Choose a row: 1, 2, or 3\n");
+		scanf("%d", &row);
+		printf("Choose a column: 1, 2, or 3\n");
+		scanf("%d", &col);
+		row -= 1;
+		col -= 1;
+		if(player == 1) {
+			xOrO = 'x';
+		} else {
+			xOrO = 'o';
+		}
+		writeToArray(row, col, xOrO, 3, 3, board);
+		won = hasWon();
+		if(won){
+			printArray(3,3,board);
+			printf("Player %d, you have won!  :)", player)
+			keepGoing = 0;
+		} else {
+			if(player==1){
+				player = 2;
+			} else {
+				player = 1;
+			}
+		}
+	}
+	return 0;
+}
+
+int hasWon() {
+	return 0;
 }
 
 /*
@@ -92,7 +144,7 @@ void initArray(int rowCount, int colCount, char array[][colCount]) {
 		// the next for loop steps through each column, and adds the 
 		// character to that column on that row.
 		for(j = 0; j < colCount; j++) {
-			array[i][j] = 'z';
+			array[i][j] = ' ';
 		}
 	}
 }
